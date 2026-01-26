@@ -1,5 +1,5 @@
 ---
-name: create-update-enum-by-migration
+name:  php-enum-class
 description: PHP Enum 类 最佳实践。当编写Enum 类时使用。
 ---
 # 根据Migration 创建/更新 Enum 类
@@ -71,12 +71,6 @@ public function isFinal(): bool
 ## RESOURCES
 
 - `assets/enum-template.php`: 最佳实践和代码结构原则
-
-## 图标规范
-
-### Heroicon 图标使用
-
-查看 `Filament\Support\Icons\Heroicon Enum类的可选择Icon
 
 ## 国际化支持
 
