@@ -1,6 +1,6 @@
 ---
 name: filament-infolist
-description: 专注于 Filament 详情页的设计规范。使用场景在Filament Infolist 等。
+description: 专注于 Filament 详情页的设计规范。使用场景在Filament Infolist 定义 等。
 ---
 
 # Filament Infolist 设计规范

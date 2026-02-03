@@ -1,6 +1,6 @@
 ---
 name: filament-form
-description: 专注于 表单编辑场景的设计规范。使用场景在Filament Form表单 / Filament Page 等。
+description: 专注于 表单编辑场景的设计规范。使用场景在Filament Form表单定义 / Filament Page 等。
 ---
 
 # Filament Form 设计规范
