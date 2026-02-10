@@ -1,6 +1,6 @@
 ---
 name: filament-icon
-description: 在Filament 后台加入图标规范。使用场景在Filament Resource / Filament Page / Filament Widget 等。
+description: Filament 图标规范。使用场景在Filament Resource / Filament Table Filter Form / Filament Page / Filament Widget 等。
 ---
 
 # Filament Icon 定义

@@ -11,12 +11,15 @@ use Filament\Actions\ViewAction;
 use Filament\Support\Enums\FontWeight;
 use Filament\Tables\Columns\Summarizers\Sum;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Table;
 use Geekstek\ActivityLog\Filament\Resources\ActivityLogs\Actions\ActivityLogTimelineTableAction;
 use Geekstek\Administrative\Filament\Resources\EmployeeProfiles\EmployeeProfileResource;
 use Geekstek\Administrative\Models\Community;
 use Malzariey\FilamentDaterangepickerFilter\Filters\DateRangeFilter;
+use Filament\Support\Icons\Heroicon;
 
 class CommunitiesTable
 {
@@ -30,6 +33,7 @@ class CommunitiesTable
         return $table
             ->columns($columns)
             ->filters($filters)
+            ->filtersFormSchema(fn (array $filters): array => self::getFiltersFormSchema($filters))
             ->recordActions([
                 ActionGroup::make([
                     ViewAction::make()
@@ -110,4 +114,42 @@ class CommunitiesTable
                 ->format('Y-m-d'),
         ];
     }
+
+    /**
+ * 筛选表单布局配置
+ *
+ * 设计原则:
+ * - 瀑布式布局：两个 Grid::make(1) 分左/右栏，全局 filtersFormColumns(2) 自动实现两栏
+ * - 零 Description：Section 标题精准，配合 Icon + Color 传递意图
+ * - Heroicon Enum：使用实心图标 (Heroicon::XXX)，非线框图标
+ *
+ * @param  array<string, \Filament\Tables\Filters\BaseFilter>  $filters
+ */
+public static function getFiltersFormSchema(array $filters): array
+{
+    return [
+        // ===== 左栏 =====
+        Grid::make(1)->schema([
+            Section::make('状态筛选')
+                ->icon(Heroicon::CheckCircle)
+                ->iconColor('success')
+                ->compact()
+                ->schema([
+                    $filters['status'],
+                ]),
+        ]),
+
+        // ===== 右栏 =====
+        Grid::make(1)->schema([
+            Section::make('时间筛选')
+                ->icon(Heroicon::Clock)
+                ->iconColor('gray')
+                ->compact()
+                ->schema([
+                    $filters['created_at'],
+                    $filters['updated_at'],
+                ]),
+        ]),
+    ];
+}
 }

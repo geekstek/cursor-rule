@@ -1,6 +1,6 @@
 ---
 name: filament-form
-description: 专注于 表单编辑场景的设计规范。使用场景在Filament Form表单定义 / Filament Page 等。
+description: 专注于 表单场景的设计规范。使用场景在Filament Form / Filament Table Filter 表单定义 / Filament Page 等。
 ---
 
 # Filament Form 设计规范
@@ -9,6 +9,7 @@ description: 专注于 表单编辑场景的设计规范。使用场景在Filame
 
 - 零 Description：Section 标题必须精准，配合 Icon + Color 传递意图，节省垂直空间。
 - 黄金布局 (2/3 + 1/3)：默认采用“左侧内容 + 右侧管理”的布局，避免单列直排导致页面过长。
+- 拆分`$schema->components([])` 内的数组, 到 `getComponents()` 方法中实现。
 
 # 布局架构规范 (Layout Architecture)
 
